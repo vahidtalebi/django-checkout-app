@@ -33,7 +33,7 @@ class Gates(models.Model):
 
 class Enter_cars(models.Model):
     user_id=models.ForeignKey(Users, on_delete=models.CASCADE)
-    date_=models.DateTimeField( auto_now=False, auto_now_add=False)
+    date=models.DateTimeField( auto_now=False, auto_now_add=False)
     enter_time=models.DateTimeField( auto_now=False, auto_now_add=True)
     exit_time=models.DateTimeField( auto_now=False, auto_now_add=False)
     gates_id=models.ForeignKey(Gates, on_delete=models.CASCADE)
@@ -65,8 +65,8 @@ class Admins(models.Model):
         return self.personnel_code
 class Logs(models.Model):
     admin_id=models.ForeignKey(Admins, on_delete=models.CASCADE)
-    date_=models.DateField( auto_now=False, auto_now_add=False)
-    time_=models.DateTimeField( auto_now=False, auto_now_add=False)
+    date=models.DateField( auto_now=False, auto_now_add=False)
+    time=models.DateTimeField( auto_now=False, auto_now_add=False)
     online_time=models.DateTimeField( auto_now=False, auto_now_add=False)
     def __str__(self):
         return self.admin_id
@@ -106,5 +106,5 @@ class Drivers_fined(models.Model):
     car_tag=models.CharField(max_length=50)
     location_id=models.ForeignKey(Locations, on_delete=models.CASCADE)
     driving_fine_id=models.ForeignKey(Driving_fine, on_delete=models.CASCADE)
-    date_=models.DateField( auto_now=False, auto_now_add=False)
-    time_=models.DateTimeField( auto_now=False, auto_now_add=False)
+    date=models.DateField( auto_now=False, auto_now_add=False)
+    time=models.DateTimeField( auto_now=False, auto_now_add=False)

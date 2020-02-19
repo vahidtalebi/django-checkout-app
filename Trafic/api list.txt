@@ -1,0 +1,128 @@
+note: "*" means this item need api for clients
+Table users{
+  id int[pk]
+  firstname  *
+  lastaname *
+  fathername *
+  time_of_birth * 
+  national_code *
+  mobile_number * 
+  gender * ------> has 2 attribute 'male' and 'female'
+  personal_pic *
+  marital_status * ------> has 2 attribute 'married' and 'single'
+  std_code *
+  majar *
+  enter_yaer *
+  field *
+  gerayesh * 
+  address *
+  phone_number * 
+  zip_code *
+  finger_print * 
+  otp * -----> this code must check in server side
+  state * 
+  driving_licence_number *
+  driving_licence_years *
+  driving_licence_date *
+  driving_licence_fr_photo *
+  driving_licence_ba_photo *
+}
+
+Table request_type{
+  id int[pk]
+  type * ----> api for read and write in database
+  price * ---> api for read and write in database
+}
+
+Table requests {
+  id int[pk]
+  request_type_id 
+  reqeust_date *
+  reqeust_time *
+  request_image * 
+  comment * 
+  admin_dicision *
+  admin_comment *
+  user_id 
+  validity_duration  
+  admin_id 
+}
+
+Table admins {
+  id int[pk]
+  firstname *
+  lastname *
+  national_code *
+  personnel_code *
+  fathername *
+  mobile_number *
+  gender * ------> has 2 attribute 'male' and 'female'
+  personnel_image *
+  access_type_id 
+}
+
+Table access_type{
+  id int[pk]
+  type * ----> api for read and write in database
+}
+
+Table payment{
+  id int[pk]
+  payment_time 
+  payport_id 
+  users_id 
+  payment_amount *
+}
+
+Table payport{
+  id int[pk]
+  port *
+}
+
+Table Driving_fine{
+  id int[pk]
+  type * ----> api for read and write in database
+  price * ----> api for read and write in database
+}
+
+Table locations{
+  id int[pk]
+  location * ----> api for read and write in database
+}
+
+Table gates{
+  id int[pk]
+  name * ----> api for read and write in database
+}
+
+Table Enter_cars{
+  id int [pk]
+  user_id 
+  date_ 
+  enter_time *
+  exit_time *
+  gates_id *
+  car_tag *
+  car_photo  *
+  car_color *
+  car_type *
+}
+
+Table Drivers_fined{
+  id int [pk]
+  users_id *
+  car_photo *
+  car_tag *
+  location_id *
+  Driving_fine_id *
+  date_ *
+  time_ *
+}
+
+Table Logs{
+  id int [pk]
+  admin_id *
+  date_ *
+  time_ *
+  online_time *
+}
